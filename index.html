@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPigs - Gestión Porcina</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="login" class="login-container">
+        <div class="login-box">
+            <h1>🐷 MyPigs</h1>
+            <h2>Bienvenido</h2>
+            <p>Gestión y administración porcina</p>
+
+            <form id="formLogin">
+                <label for="correoLogin">Correo electrónico</label>
+                <input type="email" id="correoLogin" required>
+
+                <label for="passwordLogin">Contraseña</label>
+                <input type="password" id="passwordLogin" required>
+
+                <button type="submit">Iniciar sesión</button>
+            </form>
+
+            <p>¿No tienes cuenta?
+                <a href="#" id="mostrarRegistro">Crear cuenta</a>
+            </p>
+            <p id="mensajeLogin"></p>
+        </div>
+    </div>
+
+    <div id="registro" class="login-container oculto">
+        <div class="login-box">
+            <h1>🐷 MyPigs</h1>
+            <h2>Crear cuenta</h2>
+
+            <form id="formRegistro">
+                <label>Nombre completo</label>
+                <input type="text" id="nombreRegistro" required>
+
+                <label>Correo electrónico</label>
+                <input type="email" id="correoRegistro" required>
+
+                <label>Contraseña</label>
+                <input type="password" id="passwordRegistro" required>
+
+                <button type="submit">Registrarme</button>
+            </form>
+
+            <p>¿Ya tienes cuenta?
+                <a href="#" id="mostrarLogin">Iniciar sesión</a>
+            </p>
+            <p id="mensajeRegistro"></p>
+        </div>
+    </div>
+
+    <div id="aplicacion" class="app oculto">
+        <aside class="sidebar">
+            <h2>🐷 MyPigs</h2>
+            <p>Gestión porcina</p>
+
+            <nav>
+                <a href="#" data-section="inicio">Inicio</a>
+                <a href="#" data-section="cerdos">Cerdos</a>
+                <a href="#" data-section="corrales">Corrales</a>
+                <a href="#" data-section="alimentacion">Alimentación</a>
+                <a href="#" data-section="inventario">Inventario</a>
+                <a href="#" data-section="peso">Control de peso</a>
+                <a href="#" data-section="proveedores">Proveedores</a>
+                <a href="#" data-section="ventas">Ventas</a>
+                <a href="#" data-section="perfil">Mi perfil</a>
+            </nav>
+
+            <button id="cerrarSesion">Cerrar sesión</button>
+        </aside>
+
+        <main class="contenido">
+            <header>
+                <h2>Bienvenido a MyPigs</h2>
+                <p>Sistema de gestión y administración porcina</p>
+            </header>
+
+            <section id="inicio" class="modulo-contenido activo">
+                <h2>Panel de inicio</h2>
+                <div class="tarjetas">
+                    <div class="tarjeta"><h3>🐷 Cerdos</h3><p>Administra tus animales</p></div>
+                    <div class="tarjeta"><h3>🏠 Corrales</h3><p>Organiza tus corrales</p></div>
+                    <div class="tarjeta"><h3>🌽 Alimentación</h3><p>Controla la alimentación</p></div>
+                    <div class="tarjeta"><h3>📦 Inventario</h3><p>Gestiona tus productos</p></div>
+                </div>
+            </section>
+
+            <section id="cerdos" class="modulo-contenido">
+                <h2>Registro de cerdos</h2>
+                <form class="formulario-registro" id="formCerdos">
+                    <label>Identificación</label><input id="idCerdo" required>
+                    <label>Raza</label><input id="razaCerdo" required>
+                    <label>Fecha de nacimiento</label><input type="date" id="fechaCerdo">
+                    <label>Sexo</label>
+                    <select id="sexoCerdo"><option>Macho</option><option>Hembra</option></select>
+                    <button>Guardar cerdo</button>
+                </form>
+                <div id="listaCerdos"></div>
+            </section>
+
+            <section id="corrales" class="modulo-contenido">
+                <h2>Registro de corrales</h2>
+                <form class="formulario-registro" id="formCorrales">
+                    <label>Número del corral</label><input id="numeroCorral" required>
+                    <label>Capacidad</label><input type="number" id="capacidadCorral" required>
+                    <label>Ubicación</label><input id="ubicacionCorral">
+                    <button>Guardar corral</button>
+                </form>
+                <div id="listaCorrales"></div>
+            </section>
+
+            <section id="alimentacion" class="modulo-contenido">
+                <h2>Alimentación</h2>
+                <form class="formulario-registro" id="formAlimentacion">
+                    <label>Tipo de alimento</label><input id="tipoAlimento" required>
+                    <label>Cantidad</label><input type="number" id="cantidadAlimento" required>
+                    <label>Fecha</label><input type="date" id="fechaAlimento">
+                    <button>Guardar registro</button>
+                </form>
+                <div id="listaAlimentacion"></div>
+            </section>
+
+            <section id="inventario" class="modulo-contenido">
+                <h2>Inventario</h2>
+                <form class="formulario-registro" id="formInventario">
+                    <label>Producto</label><input id="productoInventario" required>
+                    <label>Cantidad</label><input type="number" id="cantidadInventario" required>
+                    <button>Guardar producto</button>
+                </form>
+                <div id="listaInventario"></div>
+            </section>
+
+            <section id="peso" class="modulo-contenido">
+                <h2>Control de peso</h2>
+                <form class="formulario-registro" id="formPeso">
+                    <label>Identificación del cerdo</label><input id="cerdoPeso" required>
+                    <label>Peso en kilogramos</label><input type="number" step="0.1" id="valorPeso" required>
+                    <label>Fecha</label><input type="date" id="fechaPeso">
+                    <button>Guardar peso</button>
+                </form>
+                <div id="listaPeso"></div>
+            </section>
+
+            <section id="proveedores" class="modulo-contenido">
+                <h2>Proveedores</h2>
+                <form class="formulario-registro" id="formProveedores">
+                    <label>Nombre del proveedor</label><input id="nombreProveedor" required>
+                    <label>Teléfono</label><input id="telefonoProveedor">
+                    <label>Producto o servicio</label><input id="servicioProveedor">
+                    <button>Guardar proveedor</button>
+                </form>
+                <div id="listaProveedores"></div>
+            </section>
+
+            <section id="ventas" class="modulo-contenido">
+                <h2>Ventas</h2>
+                <form class="formulario-registro" id="formVentas">
+                    <label>Producto vendido</label><input id="productoVenta" required>
+                    <label>Cantidad</label><input type="number" id="cantidadVenta" required>
+                    <label>Valor total</label><input type="number" id="valorVenta" required>
+                    <button>Guardar venta</button>
+                </form>
+                <div id="listaVentas"></div>
+            </section>
+
+            <section id="perfil" class="modulo-contenido">
+                <h2>Mi perfil</h2>
+                <div id="datosPerfil"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
